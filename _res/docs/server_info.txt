@@ -1,0 +1,15 @@
+[Ubuntu Server]
+username : mtopantukan
+password : mtopantukan2020
+
+[Webmin]
+username : mtopantukan
+password : mtopantukan2020
+
+[Portainer]
+User     :  admin
+Password :  p@ssw0rd
+
+[Samba Shared Folder]
+username : mtopantukan
+password : p@ssw0rd
