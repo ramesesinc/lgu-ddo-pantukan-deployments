@@ -4,7 +4,7 @@ services:
 
   epayment-server:
     container_name: epayment-server
-    image: "ramesesinc/enterprise-common-server:255.03.001"
+    image: ramesesinc/local-epayment-server:2.5.01.02.04
     restart: always
     logging: 
       driver: "json-file"
@@ -14,12 +14,15 @@ services:
     environment:
       TZ: "Asia/Manila"
     env_file:
+      - ./env.conf
       - ../../_res/env.conf
       - ../../_custom/env.conf
     ports: 
       - "8095:8070"
     volumes:
-      - ../../_res/connections:/apps/enterprise/connections/ext
+      - ../../_res/connections:/enterprise/connections/ext
       - ../../_custom/datasources/epaymentds:/services/datasources/mainds
 
-      - ./modules:/apps/enterprise/modules
+      - ./module-client/reports:/apps/server/templates
+      - ../../_custom/module-client/epayment:/apps/server/templates/custom
+      - ../../_custom/output:/apps/server/output
